@@ -40,7 +40,7 @@ const HeroSection = () => {
 
   return (
     <section className="w-full bg-white pt-20 sm:pt-24 pb-10">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1920px] w-full mx-auto px-2 sm:px-4 lg:px-6">
         
         {/* Banner Container */}
         <div className="relative w-full aspect-[4/3] sm:aspect-[16/7] md:aspect-[21/9] lg:aspect-[24/9] rounded-2xl md:rounded-3xl overflow-hidden shadow-xl shadow-slate-200/50 bg-slate-900 group">

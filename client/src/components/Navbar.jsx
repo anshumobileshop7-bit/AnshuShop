@@ -45,14 +45,16 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shadow-lg shadow-slate-900/20 group-hover:scale-105 transition-transform duration-300">
-            <Smartphone className="w-5 h-5 text-brand-400" />
-          </div>
+          <img 
+            src="/logo.jpg" 
+            alt="Anshu Mobile World Logo" 
+            className="w-10 h-10 sm:w-12 sm:h-12 object-cover rounded-xl shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-300"
+          />
           <div className="flex flex-col justify-center">
-            <span className="text-lg sm:text-xl font-black tracking-tight text-slate-900 leading-tight">
+            <span className="text-xl sm:text-2xl font-stylish font-bold text-slate-900 leading-none">
               {settings.shopName || 'Anshu Mobile World'}
             </span>
-            <span className="text-[9px] sm:text-[10px] font-extrabold tracking-[0.2em] text-slate-500 uppercase">
+            <span className="text-[10px] font-medium tracking-widest text-brand-600 uppercase mt-1">
               Premium Store
             </span>
           </div>
