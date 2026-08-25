@@ -22,14 +22,8 @@ export const ShopProvider = ({ children }) => {
   const [hero, setHero] = useState(null);
   const [about, setAbout] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [isColdStarting, setIsColdStarting] = useState(false);
 
   const fetchShopData = useCallback(async () => {
-    // If it takes more than 2.5 seconds, assume the server is cold starting
-    const coldStartTimer = setTimeout(() => {
-      setIsColdStarting(true);
-    }, 2500);
-
     try {
       const [settingsRes, heroRes, aboutRes] = await Promise.allSettled([
         api.get('/settings'),
@@ -49,10 +43,7 @@ export const ShopProvider = ({ children }) => {
     } catch (err) {
       console.error('Failed to load shop configuration:', err);
     } finally {
-      clearTimeout(coldStartTimer);
       setLoading(false);
-      // Wait a tiny bit for React to render the data before hiding the cold start screen
-      setTimeout(() => setIsColdStarting(false), 500);
     }
   }, []);
 
@@ -80,7 +71,6 @@ export const ShopProvider = ({ children }) => {
         hero,
         about,
         loading,
-        isColdStarting,
         refreshShopData,
         getCleanPhone,
         getCleanWhatsApp,

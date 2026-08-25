@@ -7,7 +7,7 @@ import { useShop } from './context/ShopContext';
 import PublicLayout from './layouts/PublicLayout';
 import AdminLayout from './layouts/AdminLayout';
 import ProtectedRoute from './components/ProtectedRoute';
-import ColdStartLoader from './components/ColdStartLoader';
+
 
 // Public Pages
 import HomePage from './pages/HomePage';
@@ -27,24 +27,10 @@ import AdminAbout from './pages/admin/AdminAbout';
 import AdminSettings from './pages/admin/AdminSettings';
 
 function App() {
-  const { isColdStarting } = useShop();
+
 
   return (
-    <>
-      <AnimatePresence>
-        {isColdStarting && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
-            className="relative z-[100]"
-          >
-            <ColdStartLoader />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <Routes>
+    <>      <Routes>
         {/* Public Storefront Routes */}
         <Route element={<PublicLayout />}>
           <Route path="/" element={<HomePage />} />
