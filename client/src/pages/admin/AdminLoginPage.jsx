@@ -38,11 +38,7 @@ const AdminLoginPage = () => {
     }
   };
 
-  const handleFillDemo = () => {
-    setEmail('admin@anshumobile.com');
-    setPassword('Admin@12345');
-    showSuccess('Demo credentials filled!');
-  };
+
 
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -76,7 +72,7 @@ const AdminLoginPage = () => {
                 <input
                   type="email"
                   required
-                  placeholder="admin@anshumobile.com"
+                  placeholder="admin@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-11 pr-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm"
@@ -121,18 +117,8 @@ const AdminLoginPage = () => {
             </Button>
           </form>
 
-          {/* Quick Demo Fill Helper */}
-          <div className="mt-6 pt-6 border-t border-slate-800 flex flex-col items-center">
-            <button
-              type="button"
-              onClick={handleFillDemo}
-              className="text-xs text-brand-400 hover:text-brand-300 font-semibold bg-slate-800/80 hover:bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl transition-all"
-            >
-              Click to Auto-fill Default Demo Credentials
-            </button>
-            <span className="text-[11px] text-slate-500 mt-2">
-              (admin@anshumobile.com / Admin@12345)
-            </span>
+          <div className="mt-8 text-center text-xs text-slate-500">
+            <p>Secure CMS Area. Authorized Access Only.</p>
           </div>
         </div>
 

@@ -125,7 +125,7 @@ const AdminSidebar = ({ isOpen, onClose }) => {
                 {admin?.name || 'Administrator'}
               </span>
               <span className="text-[11px] text-slate-500 truncate max-w-[150px]">
-                {admin?.email || 'admin@anshumobile.com'}
+                {admin?.email || 'anshumobileshop7@gmail.com'}
               </span>
             </div>
           </div>

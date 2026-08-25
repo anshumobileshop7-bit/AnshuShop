@@ -176,7 +176,7 @@ const AdminGallery = () => {
                   <img
                     src={item.image}
                     alt={item.caption || 'Shop photo'}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 text-transparent"
                   />
 
                   {item.category && (

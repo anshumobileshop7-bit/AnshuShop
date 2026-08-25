@@ -18,10 +18,10 @@ export const seedDatabase = async () => {
     if (!adminExists) {
       await Admin.create({
         name: 'Anshu Mobile Store Owner',
-        email: 'admin@anshumobile.com',
-        password: 'Admin@12345',
+        email: 'anshumobileshop7@gmail.com',
+        password: 'anshuworldmob@7757',
       });
-      console.log('  ✅ Admin user created: admin@anshumobile.com / Admin@12345');
+      console.log('  ✅ Admin user created: anshumobileshop7@gmail.com / anshuworldmob@7757');
     }
 
     // 2. We no longer seed dummy Hero, Offers, Gallery, and About.

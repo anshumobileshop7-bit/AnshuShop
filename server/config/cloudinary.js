@@ -1,5 +1,6 @@
 import { v2 as cloudinary } from 'cloudinary';
 import dotenv from 'dotenv';
+import sharp from 'sharp';
 
 dotenv.config();
 
@@ -40,9 +41,15 @@ export const uploadToCloudinary = async (fileBuffer, mimeType, folder = 'anshu_m
     });
   }
 
-  // Graceful fallback to Data URI when Cloudinary credentials are not set
-  const base64 = fileBuffer.toString('base64');
-  return `data:${mimeType || 'image/jpeg'};base64,${base64}`;
+  // Graceful fallback: Compress image drastically using sharp before base64 conversion
+  // This heavily reduces payload size and speeds up API response times.
+  const compressedBuffer = await sharp(fileBuffer)
+    .resize({ width: 1200, withoutEnlargement: true }) // Downscale large images
+    .webp({ quality: 70 }) // Convert to webp and lower quality
+    .toBuffer();
+
+  const base64 = compressedBuffer.toString('base64');
+  return `data:image/webp;base64,${base64}`;
 };
 
 export default cloudinary;
