@@ -24,7 +24,18 @@ const app = express();
 app.use(helmet()); // Secure HTTP headers
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || '*',
+    origin: function (origin, callback) {
+      const allowedOrigins = process.env.CLIENT_URL 
+        ? process.env.CLIENT_URL.split(',').map(url => url.trim())
+        : ['*'];
+      
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin || allowedOrigins.includes('*') || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
   })
 );
@@ -40,6 +51,14 @@ const apiLimiter = rateLimit({
   message: { success: false, message: 'Too many requests from this IP, please try again after 15 minutes' },
 });
 app.use('/api', apiLimiter);
+
+// Root endpoint (Welcome message for when you visit the API URL directly)
+app.get('/', (req, res) => {
+  res.send('Welcome to Anshu Mobile World API. Please use /api endpoints.');
+});
+
+// Ignore favicon requests to keep logs clean
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
