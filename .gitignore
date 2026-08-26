@@ -1,3 +1,11 @@
 node_modules/
 .env
+.env.local
+.env.*.local
 brain/
+dist/
+client/dist/
+*.zip
+*.log
+.DS_Store
+Thumbs.db

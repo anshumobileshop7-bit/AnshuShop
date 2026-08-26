@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Smartphone, Phone, Menu, X, Tag, Sparkles } from 'lucide-react';
+import { Phone, Menu, X } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 import Button from './Button';
 
@@ -38,24 +38,24 @@ const Navbar = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200/80 py-3.5'
-          : 'bg-white/70 backdrop-blur-sm py-5'
+          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 py-3.5'
+          : 'bg-white/80 backdrop-blur-sm py-4 sm:py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
+        {/* Brand Logo & Name */}
         <Link to="/" className="flex items-center gap-3 group">
           <img 
             src="/logo.jpg" 
             alt="Anshu Mobile World Logo" 
-            className="w-10 h-10 sm:w-12 sm:h-12 object-cover rounded-xl shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-300"
+            className="w-10 h-10 sm:w-11 sm:h-11 object-cover rounded-xl shadow-sm border border-slate-200/60 group-hover:scale-105 group-hover:shadow-md transition-all duration-300"
           />
           <div className="flex flex-col justify-center">
-            <span className="text-xl sm:text-2xl font-stylish font-bold text-slate-900 leading-none">
+            <span className="text-lg sm:text-xl font-bold tracking-tight text-slate-900 leading-tight group-hover:text-brand-600 transition-colors">
               {settings.shopName || 'Anshu Mobile World'}
             </span>
-            <span className="text-[10px] font-medium tracking-widest text-brand-600 uppercase mt-1">
-              Premium Store
+            <span className="text-[11px] font-medium text-slate-500 leading-tight mt-0.5">
+              Akbarpur, Ambedkar Nagar
             </span>
           </div>
         </Link>
