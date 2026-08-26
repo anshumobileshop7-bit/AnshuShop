@@ -15,7 +15,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen pt-20 sm:pt-24">
       {/* 1. Hero Slider (Top) */}
       <HeroSection />
 

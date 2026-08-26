@@ -39,7 +39,7 @@ const HeroSection = () => {
   const linkUrl = currentSlide?.buttonLink || fallbackWaLink;
 
   return (
-    <section className="w-full bg-white pt-20 sm:pt-24 pb-10">
+    <section className="w-full bg-white pb-10">
       <div className="max-w-[1920px] w-full mx-auto px-2 sm:px-4 lg:px-6">
         
         {/* Banner Container */}

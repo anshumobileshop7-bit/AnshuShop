@@ -43,15 +43,15 @@ const OfferCard = ({ offer, index = 0 }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1, type: "spring", stiffness: 100 }}
-      className="group bg-white rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-500 flex flex-col h-full hover:-translate-y-2 relative"
+      className="group bg-white rounded-[2rem] overflow-hidden border border-slate-200/60 shadow-sm hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-500 flex flex-col hover:-translate-y-2 relative h-fit"
     >
       {/* Image & Badges */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+      <div className="relative w-full overflow-hidden bg-slate-50 flex items-center justify-center border-b border-slate-100 p-4">
         <img
           src={offer.image}
           alt={offer.title}
           loading="lazy"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-auto max-h-[300px] object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
         />
 
         {/* Top Badges */}
@@ -75,7 +75,7 @@ const OfferCard = ({ offer, index = 0 }) => {
       </div>
 
       {/* Card Body */}
-      <div className="p-6 flex-1 flex flex-col justify-between">
+      <div className="p-6 flex flex-col">
         <div>
           {/* Tags */}
           {offer.tags && offer.tags.length > 0 && (
