@@ -74,13 +74,13 @@ const NewLaunchSection = () => {
               className="group relative rounded-3xl overflow-hidden bg-slate-800 border border-slate-700 hover:border-brand-500/50 transition-colors duration-500 flex flex-col sm:flex-row"
             >
               {/* Image Section */}
-              <div className="w-full sm:w-2/5 aspect-[4/3] sm:aspect-auto sm:min-h-[300px] relative overflow-hidden bg-slate-950">
+              <div className="w-full sm:w-2/5 aspect-[4/3] sm:aspect-auto sm:min-h-[300px] relative overflow-hidden bg-slate-900/80 flex items-center justify-center p-4 sm:p-6">
                 <img
                   src={phone.image}
                   alt={phone.title}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full max-h-[260px] object-contain object-center group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-4 left-4 z-10">
                   <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-rose-500 text-white shadow-lg shadow-rose-500/30 animate-pulse">
                     <Rocket className="w-3.5 h-3.5" /> New
                   </span>

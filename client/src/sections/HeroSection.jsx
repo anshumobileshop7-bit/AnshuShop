@@ -43,7 +43,7 @@ const HeroSection = () => {
       <div className="max-w-[1920px] w-full mx-auto px-2 sm:px-4 lg:px-6">
         
         {/* Banner Container */}
-        <div className="relative w-full aspect-[4/3] sm:aspect-[16/7] md:aspect-[21/9] lg:aspect-[24/9] rounded-2xl md:rounded-3xl overflow-hidden shadow-xl shadow-slate-200/50 bg-slate-900 group">
+        <div className="relative w-full aspect-[16/9] sm:aspect-[18/8] md:aspect-[20/9] lg:aspect-[21/9] rounded-2xl md:rounded-3xl overflow-hidden shadow-xl shadow-slate-200/50 bg-slate-900 group">
           
           <AnimatePresence mode="wait">
             <motion.div
@@ -54,63 +54,72 @@ const HeroSection = () => {
               transition={{ duration: 0.8 }}
               className="absolute inset-0 w-full h-full"
             >
-              {/* Background Image */}
-              <img
-                src={currentSlide.image}
-                alt={currentSlide.heading || `Slide ${currentIndex + 1}`}
-                className="absolute inset-0 w-full h-full object-cover object-center"
-              />
+              {/* Background Image / Clickable Slide if no button text */}
+              <a
+                href={linkUrl}
+                target={linkUrl.startsWith('http') ? '_blank' : '_self'}
+                rel="noreferrer"
+                className={`absolute inset-0 w-full h-full ${!currentSlide.buttonText ? 'cursor-pointer' : 'cursor-default'}`}
+              >
+                <img
+                  src={currentSlide.image}
+                  alt={currentSlide.heading || `Slide ${currentIndex + 1}`}
+                  className="w-full h-full object-cover object-center"
+                />
+              </a>
               
-              {/* Gradient Overlay for text readability */}
+              {/* Gradient Overlay only if heading or subheading is present */}
               {(currentSlide.heading || currentSlide.subheading) && (
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent pointer-events-none" />
               )}
 
-              {/* Text Content */}
-              <div className="absolute inset-0 flex items-center">
-                <div className="px-6 sm:px-12 md:px-16 w-full max-w-3xl">
-                  {currentSlide.heading && (
-                    <motion.h1
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.3, duration: 0.6 }}
-                      className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-4 sm:mb-5 drop-shadow-lg tracking-tight"
-                    >
-                      {currentSlide.heading}
-                    </motion.h1>
-                  )}
-                  
-                  {currentSlide.subheading && (
-                    <motion.p
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.5, duration: 0.6 }}
-                      className="text-sm sm:text-lg md:text-xl text-slate-200 mb-6 sm:mb-8 font-medium max-w-2xl drop-shadow leading-relaxed"
-                    >
-                      {currentSlide.subheading}
-                    </motion.p>
-                  )}
-
-                  {currentSlide.buttonText && (
-                    <motion.div
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.7, duration: 0.6 }}
-                    >
-                      <Button
-                        href={linkUrl}
-                        variant="primary"
-                        size="lg"
-                        icon={ArrowRight}
-                        iconPosition="right"
-                        className="shadow-xl shadow-brand-500/20 hover:shadow-brand-500/40 rounded-full px-8 py-3.5 sm:py-4 sm:px-10 font-bold text-sm sm:text-base transition-all hover:scale-105"
+              {/* Text Content - only rendered if heading, subheading, or buttonText exists */}
+              {(currentSlide.heading || currentSlide.subheading || currentSlide.buttonText) && (
+                <div className="absolute inset-0 flex items-center pointer-events-none">
+                  <div className="px-6 sm:px-12 md:px-16 w-full max-w-3xl pointer-events-auto">
+                    {currentSlide.heading && (
+                      <motion.h1
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.3, duration: 0.6 }}
+                        className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] mb-3 sm:mb-4 drop-shadow-lg tracking-tight"
                       >
-                        {currentSlide.buttonText}
-                      </Button>
-                    </motion.div>
-                  )}
+                        {currentSlide.heading}
+                      </motion.h1>
+                    )}
+                    
+                    {currentSlide.subheading && (
+                      <motion.p
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.5, duration: 0.6 }}
+                        className="text-xs sm:text-base md:text-lg text-slate-200 mb-5 sm:mb-6 font-medium max-w-2xl drop-shadow leading-relaxed"
+                      >
+                        {currentSlide.subheading}
+                      </motion.p>
+                    )}
+
+                    {currentSlide.buttonText && (
+                      <motion.div
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.7, duration: 0.6 }}
+                      >
+                        <Button
+                          href={linkUrl}
+                          variant="primary"
+                          size="lg"
+                          icon={ArrowRight}
+                          iconPosition="right"
+                          className="shadow-xl shadow-brand-500/20 hover:shadow-brand-500/40 rounded-full px-6 py-2.5 sm:py-3.5 sm:px-8 font-bold text-xs sm:text-base transition-all hover:scale-105"
+                        >
+                          {currentSlide.buttonText}
+                        </Button>
+                      </motion.div>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
             </motion.div>
           </AnimatePresence>
 

@@ -237,7 +237,7 @@ const AdminDashboard = () => {
                     <img
                       src={offer.image}
                       alt={offer.title}
-                      className="w-12 h-12 rounded-xl object-cover border border-slate-200 shrink-0"
+                      className="w-12 h-12 rounded-xl object-contain p-1 bg-slate-50 border border-slate-200 shrink-0"
                     />
                     <div className="min-w-0">
                       <p className="text-sm font-bold text-slate-900 truncate">{offer.title}</p>

@@ -265,7 +265,7 @@ const AdminOffers = () => {
                           <img
                             src={offer.image}
                             alt={offer.title}
-                            className="w-14 h-14 rounded-xl object-cover border border-slate-200 shrink-0 bg-slate-100"
+                            className="w-14 h-14 rounded-xl object-contain p-1 border border-slate-200 shrink-0 bg-slate-50"
                           />
                           <div className="min-w-0 max-w-xs sm:max-w-md">
                             <div className="flex items-center gap-1.5 mb-1">

@@ -45,13 +45,13 @@ const OfferCard = ({ offer, index = 0 }) => {
       transition={{ duration: 0.4, delay: index * 0.05 }}
       className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-slate-300 transition-all duration-300 flex flex-col h-full relative"
     >
-      {/* 1. Image Container with Auto Cover & Badges */}
-      <div className="relative w-full aspect-[4/3] overflow-hidden bg-slate-100 shrink-0">
+      {/* 1. Image Container with Auto Contain & Badges */}
+      <div className="relative w-full aspect-[4/3] overflow-hidden bg-slate-50 flex items-center justify-center p-3 sm:p-4 shrink-0 border-b border-slate-100">
         <img
           src={offer.image}
           alt={offer.title}
           loading="lazy"
-          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full max-h-full object-contain object-center group-hover:scale-105 transition-transform duration-500"
         />
 
         {/* Top-Left Badges */}
