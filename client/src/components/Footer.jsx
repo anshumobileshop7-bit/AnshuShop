@@ -169,12 +169,15 @@ const Footer = () => {
             <h4 className="text-white text-sm font-bold uppercase tracking-wider mb-5">
               Visit Store
             </h4>
-            <div className="flex items-start gap-3 text-sm text-slate-400 mb-5">
+            <div className="flex items-start gap-3 text-sm text-slate-400 mb-2">
               <div className="p-1.5 rounded-md bg-rose-950 border border-rose-800/50 mt-0.5">
                 <MapPin className="w-3.5 h-3.5 text-rose-500" />
               </div>
               <span className="mt-1 leading-relaxed">{settings.address}</span>
             </div>
+            <p className="text-xs text-slate-500 mb-5 pl-9">
+              Proudly serving Akbarpur, Sahjadpur & Ambedkar Nagar (224122)
+            </p>
 
             {settings.mapsUrl && (
               <a
